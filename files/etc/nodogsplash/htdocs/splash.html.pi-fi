@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>$gatewayname</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="x-dns-prefetch-control" content="on">
+		<meta rel="dns-prefetch" ref="//cdn.jsdelivr.net">
+		<meta rel="dns-prefetch" ref="//surefi.com">
+		<meta rel="dns-prefetch" ref="//portal.pi-fi.co">
+		<meta rel="dns-prefetch" ref="//cdn.firebase.com">
+
+    <script>
+		'use strict';
+		var nds = {
+			mac:"$clientmac",
+			ip: "$clientip",
+			authtarget: "$authtarget",
+			token: "$tok",
+			authaction: "$authaction",
+			redir: "$redir",
+			apmac: "$gatewaymac",
+			apname: "$gatewayname"
+		};
+		var arguments_string = [];
+		for (var key in nds) {
+			arguments_string.push(key + '=' + encodeURIComponent(nds[key]));
+		}
+		arguments_string = arguments_string.join('&');
+		window.location.replace('http://portal.pi-fi.co?' + arguments_string)
+    </script>
+
+		<style>
+			body {
+				letter-spacing: -0.02em;
+			}
+			h1 {
+				font-weight: 100;
+				font-size: 2.5em;
+			}
+		</style>
+	</head>
+<body>
+	<h1>Welcome to Internet from $gatewayname</h1>
+	<p>Redirecting you… there should be a splash screen here and resources should get preloaded</p>
+</body>
+</html>
