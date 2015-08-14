@@ -100,9 +100,15 @@ def build():
         local('mkdir -p dl')
         local('make image PROFILE=TEW712BR FILES="files" PACKAGES="dropbear nodogsplash rsync"')
         # TODO: Port this to fab commands, need to use native SSH
-        local('echo scp build/bin/ar71xx/openwrt-ar71xx-generic-tew-712br-squashfs-sysupgrade.bin root@192.168.1.1:/tmp/')
-        local('echo ssh root@192.168.1.1')
-        local('echo sysupgrade -n /tmp/*sysupgrade.bin')
+        print(green('Firmware image is now in build/bin/'))
+        print('  Use build/bin/*/*factory.bin to flash a NEW, FACTORY SOFTWARE device')
+        print('  Use build/bin/*/*sysupgrade.bin to flash a device that is running a previous OpenWrt image (i.e. anything you created w/ this tool)')
+        print('')
+        print(green('Some helper commands to copy a firmware image to a device (assuming the IP is the default, and you are behind the network for the device) and upgrade an exist running a pre-existing version of the software'))
+        print('')
+        print('scp build/bin/ar71xx/openwrt-ar71xx-generic-tew-712br-squashfs-sysupgrade.bin root@192.168.1.1:/tmp/')
+        print('ssh root@192.168.1.1')
+        print('sysupgrade -n /tmp/*sysupgrade.bin')
 
 @task
 def clean():
