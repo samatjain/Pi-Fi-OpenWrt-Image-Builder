@@ -54,6 +54,11 @@ def build_jinja2():
               'captive_portal_url': 'http://portal.pi-fi.co/',
               'ssid': 'Free Wi-Fi from Pi-Fi' }
 
+    stuff = { 'gateway_name': 'box3',
+              'captive_portal_url': 'http://portal.boomtime.com/',
+              'ssid': 'ABQ Boomtime' }
+
+
     output_dir = 'build'
     directories_containing_templates = walktree('files', '*.jinja2')
     for directory in directories_containing_templates:
