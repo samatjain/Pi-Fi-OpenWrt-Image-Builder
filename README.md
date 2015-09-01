@@ -20,6 +20,8 @@ On Debian/Ubuntu, these are installed with:
 
 Place files to include in an image into the "files" directory. Password authentication is disabled, so please add your SSH keys for remote access (required for upgrading or any kind of maintenance!) to files/etc/dropbear/authorized_keys.
 
+The IP address for the captive portal redirect destination (i.e. 'portal.boomtime.com') must be hard-coded into files/etc/nodogsplash/nodogsplash.conf.jinja2 under the section for allowed addresses for "preauthenticated-users", around line 96 of that file. This IP address must NOT change! If the correct IP address is not here, the box will endlessly redirect, and users will not be able to login.
+
 Files can be Jinja2 templates, with template variables loaded from configuration files.
 
 At the moment, configuration files are not yet implemented, but "fabfile.py", in the `build_jinja2()` function, can be modified appropriately.
