@@ -93,6 +93,8 @@ FirewallRuleSet preauthenticated-users {
     FirewallRule allow tcp port 80 to 166.78.165.233
     # nero.hotnudiegirls.com
     FirewallRule allow tcp port 80 to 5.9.77.70
+    # portal.boomtime.com
+    FirewallRule allow tcp port 80 to 54.69.15.224
     # SSL (need to fix htis)
     FirewallRule allow tcp port 443
 }
@@ -119,8 +121,8 @@ FirewallRuleSet users-to-router {
  # However you may want to open up other ports, e.g.
  # 53 for DNS and 67 for DHCP if the router itself is
  # providing these services.
-    FirewallRule allow udp port 53	
-    FirewallRule allow tcp port 53	
+    FirewallRule allow udp port 53
+    FirewallRule allow tcp port 53
     FirewallRule allow udp port 67
  # You may want to allow ssh, http, and https to the router
  # for administration from the GatewayInterface.  If not,
